@@ -97,7 +97,7 @@ export default function TheProduct({
           <ReviewAccordion itemHandle={productHandle} />
         </div>
       </div>
-      <div className="flex flex-col text-center xl:text-left md:w-[500px] h-full">
+      <div className="flex w-full flex-col text-center xl:text-left md:w-[500px] h-full">
         <p className="text-xs uppercase tracking-wide text-gray-500">
           {product.vendor}
         </p>
@@ -125,7 +125,7 @@ export default function TheProduct({
         </div>
 
         <TheProductDesc product={product} />
-        <div className="flex md:hidden">
+        <div className="flex mx-auto w-3/4 md:hidden">
           <ReviewAccordion itemHandle={productHandle} />
         </div>
       </div>

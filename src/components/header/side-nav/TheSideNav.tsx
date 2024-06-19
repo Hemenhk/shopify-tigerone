@@ -18,7 +18,7 @@ export default function TheSideNav() {
       <SheetTrigger>
         <MenuIcon size={40} />
       </SheetTrigger>
-      <SheetContent side={"left"}>
+      <SheetContent side={"left"} className="w-full md:w-3/4">
         <ul className="flex flex-col gap-10 pl-16 relative top-36">
           <li className="pb-3 border-b mr-8">
             <SheetClose asChild>

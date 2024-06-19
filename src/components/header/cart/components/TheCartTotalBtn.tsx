@@ -18,7 +18,7 @@ export default function TheCartTotalBtn() {
     <SheetClose asChild>
       <Button
         onClick={checkoutUrlHandler}
-        className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
+        className="flex justify-center tracking-widest font-light md:w-full mx-3 rounded-none bg-black"
       >
         Total: {eur}
         {cost.totalAmount.amount}

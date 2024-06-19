@@ -24,7 +24,7 @@ export default function CartPage() {
   const cartItems: any[] = cart?.lines.nodes;
 
   return (
-    <div className="m-48">
+    <div className="m-5 md:m-48">
       <TheCartTable cartItems={cartItems} />
       <TheCartCheckout cartCost={cartCost} checkoutUrl={cart?.checkoutUrl} />
     </div>

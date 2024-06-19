@@ -26,13 +26,13 @@ export default function TheFooter() {
       </div>
       <div className="flex items-center justify-between px-5  w-full h-1/4 border-t">
         <div className="flex flex-row gap-5">
-          <p className="font-light tracking-wide">
+          <p className="font-light tracking-wide text-sm md:text-base">
             © {year} {shopData?.data.shop.name} All rights reserved
           </p>
-          |<p className="font-light tracking-wide"> Designed in Sweden</p>
+          |<p className="font-light tracking-wide text-sm md:text-base"> Designed in Sweden</p>
         </div>
         <div>
-          <p className="font-light tracking-wide">Crafted by Hemen</p>
+          <p className="font-light tracking-wide text-sm md:text-base">Crafted by Hemen</p>
         </div>
       </div>
     </footer>

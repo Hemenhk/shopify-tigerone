@@ -30,9 +30,9 @@ export default function TheCart() {
           </Badge>
         </div>
       </SheetTrigger>
-      <SheetContent side={"right"} className="p-0">
+      <SheetContent side={"right"} className="p-0 w-full md:w-3/4">
         <SheetHeader className="border-b p-6">
-          <SheetTitle className="uppercase text-xl font-normal tracking-widest">
+          <SheetTitle className="uppercase text-xl text-left font-normal tracking-widest">
             Cart
           </SheetTitle>
         </SheetHeader>

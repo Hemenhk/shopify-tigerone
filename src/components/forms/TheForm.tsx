@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 
 type FormFieldType = {
@@ -44,6 +44,9 @@ export default function TheForm({
     values: values,
   });
 
+  const pathname = usePathname();
+  const isSigninPage = pathname === "/credentials/signin";
+
   const mappedFormFields = formFields.map((formField: FormFieldType) => (
     <FormField
       key={formField.name}
@@ -72,13 +75,18 @@ export default function TheForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 p-24  mx-auto"
+        className="space-y-8 p-10 md:p-20 mx-auto"
       >
-        <BsFillArrowLeftCircleFill
-          size={30}
-          cursor={"pointer"}
-          onClick={goBackHandler}
-        />
+        {!isSigninPage ? (
+          <BsFillArrowLeftCircleFill
+            size={30}
+            cursor={"pointer"}
+            onClick={goBackHandler}
+          />
+        ) : (
+          ""
+        )}
+
         <h2 className="text-xl tracking-wide">{formTitle}</h2>
         {mappedFormFields}
         <Button type="submit" className="w-full">
