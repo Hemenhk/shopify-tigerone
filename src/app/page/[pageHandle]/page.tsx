@@ -1,7 +1,24 @@
-"use client";
-
+import ThePage from "@/components/pages/ThePage";
 import { getPageByHandle } from "@/graphql/queries/page-query";
-import { useQuery } from "@tanstack/react-query";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { pageHandle: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const pageHandle = params.pageHandle;
+
+  const page = await getPageByHandle(pageHandle);
+
+  return {
+    title: page?.data?.page?.title,
+    description: page?.data?.page?.bodySummary,
+  };
+}
 
 export default function PageHandle({
   params,
@@ -10,19 +27,9 @@ export default function PageHandle({
 }) {
   const { pageHandle } = params;
 
-  const { data: pageData } = useQuery({
-    queryKey: ["page"],
-    queryFn: () => getPageByHandle(pageHandle),
-  });
-
-  console.log("page", pageData?.data.page);
-
   return (
-    <div className="flex flex-col justify-center items-center mx-auto py-24 w-2/4">
-      <h2 className="text-2xl uppercase tracking-wider pb-24">
-        {pageData?.data.page.title}
-      </h2>
-      <div dangerouslySetInnerHTML={{ __html: pageData?.data.page.body }} />
-    </div>
+    <>
+      <ThePage pageHandle={pageHandle} />
+    </>
   );
 }

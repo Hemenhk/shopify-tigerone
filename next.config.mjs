@@ -6,6 +6,7 @@ const nextConfig = {
   },
   env: {
     MONGO_DB: process.env.MONGO_DB,
+    PUBLIC_ACCESS_TOKEN: process.env.PUBLIC_ACCESS_TOKEN,
   },
 };
 

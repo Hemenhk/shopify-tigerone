@@ -14,16 +14,13 @@ query PagesQuery {
 `;
 
 const pageByHandleQuery = `
-query PageQuery($handle: String = "") {
+query PageQuery($handle: String!) {
     page(handle: $handle) {
       body
       handle
       id
       onlineStoreUrl
-      seo {
-        description
-        title
-      }
+      bodySummary
       title
     }
   }

@@ -1,7 +1,24 @@
-"use client";
+import TheCollectionPage from "@/components/collections/TheCollectionPage";
 import { getCollectionByHandle } from "@/graphql/queries/collections";
-import { useQuery } from "@tanstack/react-query";
-import TheCollection from "@/components/collections/TheCollection";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { collectionHandle: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const collectionHandle = params.collectionHandle;
+
+  const product = await getCollectionByHandle(collectionHandle);
+
+  return {
+    title: product?.data?.collectionByHandle?.title,
+    description: "collection's page",
+  };
+}
 
 export default function CollectionByHandlePage({
   params,
@@ -10,22 +27,9 @@ export default function CollectionByHandlePage({
 }) {
   const { collectionHandle } = params;
 
-  const { data: collectionData } = useQuery({
-    queryKey: ["collectionHandle"],
-    queryFn: () => getCollectionByHandle(collectionHandle),
-  });
-
-  const products: any[] =
-    collectionData?.data.collectionByHandle.products.nodes;
-
-  //
-
   return (
-    <div className="flex flex-col items-center justify-center max-w-6xl mx-auto py-24">
-      <h2 className="text-2xl uppercase tracking-wider pb-16">
-        {collectionData?.data.collectionByHandle.title}
-      </h2>
-      <TheCollection products={products} />
-    </div>
+    <>
+      <TheCollectionPage collectionHandle={collectionHandle} />
+    </>
   );
 }

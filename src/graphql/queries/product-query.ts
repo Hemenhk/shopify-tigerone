@@ -1,7 +1,7 @@
 import { client } from "@/shopify-client";
 
 const productQuery = `
-query ProductByHandle($handle: String = "") {
+query ProductByHandle($handle: String!) {
   productByHandle(handle: $handle) {
     description
     descriptionHtml

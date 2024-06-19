@@ -1,7 +1,7 @@
 import { client } from "@/shopify-client";
 
 const getCollectionByHandleQuery = `
-query CollectionByHandle($handle: String = "") {
+query CollectionByHandle($handle: String!) {
     collectionByHandle(handle: $handle) {
       handle
       id
