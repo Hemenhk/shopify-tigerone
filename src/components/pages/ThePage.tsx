@@ -10,6 +10,15 @@ export default function ThePage({ pageHandle }: { pageHandle: string }) {
     queryFn: () => getPageByHandle(pageHandle),
   });
 
+  const addBreaks = (htmlString: any) => {
+    // Replace every opening <p> tag with <p><br>
+    return htmlString.replace(/<\/p>/g, '</p><br>');
+  };
+
+  const processedBody = pageData?.data?.page?.body
+    ? addBreaks(pageData.data.page.body)
+    : "";
+
   console.log("page", pageData?.data.page);
 
   return (
@@ -17,7 +26,7 @@ export default function ThePage({ pageHandle }: { pageHandle: string }) {
       <h2 className="text-2xl uppercase tracking-wider pb-24">
         {pageData?.data.page.title}
       </h2>
-      <div dangerouslySetInnerHTML={{ __html: pageData?.data.page.body }} />
+      <div dangerouslySetInnerHTML={{ __html: processedBody }} />
     </div>
   );
 }
