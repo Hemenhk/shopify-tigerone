@@ -11,18 +11,35 @@ export default function TheCartTotalBtn() {
 
   const eur = cost.totalAmount.currencyCode === "EUR" && "€";
 
-  const checkoutUrlHandler = () => {
+  const redirectToCartHandler = () => {
     router.push("/cart");
+  };
+
+  const checkoutUrlHandler = () => {
+    router.push(cart?.checkoutUrl);
   };
   return (
     <SheetClose asChild>
-      <Button
-        onClick={checkoutUrlHandler}
-        className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
-      >
-        Total: {eur}
-        {cost.totalAmount.amount}
-      </Button>
+      <div className="flex flex-col w-full mb-5">
+        <div className="flex md:hidden">
+          <Button
+            onClick={checkoutUrlHandler}
+            className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
+          >
+            Total: {eur}
+            {cost.totalAmount.amount}
+          </Button>
+        </div>
+        <div className="md:flex">
+          <Button
+            onClick={redirectToCartHandler}
+            className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
+          >
+            Total: {eur}
+            {cost.totalAmount.amount}
+          </Button>
+        </div>
+      </div>
     </SheetClose>
   );
 }
