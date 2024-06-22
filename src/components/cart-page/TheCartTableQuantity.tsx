@@ -37,7 +37,7 @@ export default function TheCartTableQuantity({ cart }: { cart: any }) {
     await updateLineItemMutation();
   };
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex flex-col md:flex-row items-center gap-5">
       <div className="flex items-center justify-between gap-4 border border-[#dbdbdb] rounded px-[20px] py-[8px]  w-[100px]">
         <Minus onClick={minusHandler} size={15} cursor={"pointer"} />
         <p>{quantity}</p>

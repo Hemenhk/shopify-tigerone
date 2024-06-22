@@ -29,7 +29,7 @@ export default function TheCartTable({ cartItems }: { cartItems: any[] }) {
             </div>
           </TableCell>
           <TableCell>
-            <Link href={`/product/${item.merchandise.product.handle}`}>
+            <Link href={`/product/${item.merchandise.product.handle}`} className="text-xs md:text-base">
               {item.merchandise.product.title}
             </Link>
             {item.merchandise?.selectedOptions.map((option: any, idx) => (

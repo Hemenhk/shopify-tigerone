@@ -22,7 +22,7 @@ export default function ThePage({ pageHandle }: { pageHandle: string }) {
   console.log("page", pageData?.data.page);
 
   return (
-    <div className="flex flex-col justify-center items-center mx-auto py-24 w-2/4">
+    <div className="flex flex-col justify-center items-center mx-auto py-24 w-3/4 md:w-2/4">
       <h2 className="text-2xl uppercase tracking-wider pb-24">
         {pageData?.data.page.title}
       </h2>

@@ -20,26 +20,13 @@ export default function TheCartTotalBtn() {
   };
   return (
     <SheetClose asChild>
-      <div className="flex flex-col w-full mb-5">
-        <div className="flex md:hidden">
-          <Button
-            onClick={checkoutUrlHandler}
-            className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
-          >
-            Total: {eur}
-            {cost.totalAmount.amount}
-          </Button>
-        </div>
-        <div className="md:flex">
-          <Button
-            onClick={redirectToCartHandler}
-            className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
-          >
-            Total: {eur}
-            {cost.totalAmount.amount}
-          </Button>
-        </div>
-      </div>
+      <Button
+        onClick={checkoutUrlHandler}
+        className="flex justify-center tracking-widest font-light w-full mx-3 rounded-none bg-black"
+      >
+        Total: {eur}
+        {cost.totalAmount.amount}
+      </Button>
     </SheetClose>
   );
 }

@@ -38,7 +38,7 @@ export default function TheCartItems() {
               <p className="uppercase text-xs tracking-wider text-gray-400">
                 {lineItem.merchandise.product.vendor}
               </p>
-              <h3 className="uppercase text-sm tracking-wider">
+              <h3 className="uppercase text-xs md:text-sm tracking-wider">
                 {lineItem.merchandise.product.title}
               </h3>
 
@@ -66,7 +66,7 @@ export default function TheCartItems() {
     });
 
   return (
-    <ul className="flex flex-col gap-10 p-6 overflow-y-scroll max-h-full">
+    <ul className="flex flex-col w-full gap-10 p-6 overflow-y-scroll max-h-full">
       {mappedCartLineItems}
     </ul>
   );
