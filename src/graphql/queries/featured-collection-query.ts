@@ -1,8 +1,8 @@
 import { client } from "@/shopify-client";
 
 const featuredCollection = `
-query FeaturedCollection {
-  collection(id: "gid://shopify/Collection/619038310724") {
+query FeaturedCollection($id: ID!) {
+  collection(id: $id) {
     id
     title
     products(first: 4) {
@@ -28,15 +28,16 @@ query FeaturedCollection {
         id
         title
       }
-    }
-  }
+    }}
 }
 
 `;
 
-export const getFeaturedCollection = async () => {
+export const getFeaturedCollection = async (id: string) => {
   try {
-    const res = await client.request(featuredCollection);
+    const res = await client.request(featuredCollection, {
+      variables: { id },
+    });
     return res;
   } catch (error) {
     console.log(error);
